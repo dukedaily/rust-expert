@@ -1,0 +1,426 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>1.基础概念 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-TODO.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../01_quickstart/">
+            
+                <a href="../01_quickstart/">
+            
+                    
+                    第一章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../01_quickstart/01-helloworld.html">
+            
+                <a href="../01_quickstart/01-helloworld.html">
+            
+                    
+                    1.helloworld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../01_quickstart/02-calculator.html">
+            
+                <a href="../01_quickstart/02-calculator.html">
+            
+                    
+                    2.calculator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第二章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="01-基础概念.html">
+            
+                <a href="01-基础概念.html">
+            
+                    
+                    1.基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-TODO.html">
+            
+                <a href="02-TODO.html">
+            
+                    
+                    2.TODO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.基础概念</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="1基础概念">1.基础概念</h1>
+<h1 id="httpserver案例">Httpserver案例</h1>
+<h2 id="几个概念">几个概念</h2>
+<ul>
+<li>owner：赋值，指针</li>
+<li>borrower：引用</li>
+<li>rust三个语法原则：<ul>
+<li>一个变量只能有一个owner，即只能有一个指针指向这个变量</li>
+<li>同一个作用域中，不允许同时有owner（指针）和borrower（引用）</li>
+<li>忘了？</li>
+</ul>
+</li>
+</ul>
+<h2 id="结构体">结构体</h2>
+<p>定义结构和实现是分开的，定义如下：</p>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Server</span></span> {
+  addr: <span class="hljs-built_in">String</span>
+}
+</code></pre>
+<p>实现需要使用impl关键字修饰，每个struct都有一个<code>Self</code>关键字表示自己，类似this指针</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">impl</span> Server {
+  <span class="hljs-comment">// pub表示为public的，可以在外部进行访问</span>
+  <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>() {
+    <span class="hljs-comment">//TODO</span>
+  }
+  <span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">run</span></span>() {
+    <span class="hljs-comment">//TODO</span>
+  }
+}
+</code></pre>
+<h2 id="枚举">枚举</h2>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Method</span></span> {
+  GET,
+  POST,
+  DELETE,
+  PUT
+}
+</code></pre>
+<h2 id="模块化">模块化</h2>
+<p>模块的关键字为：mod，如果在同一个文件中，需要使用mod包裹起来，如：</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">mod</span> Server {
+  <span class="hljs-comment">// TODO</span>
+}
+</code></pre>
+<p>如果单独写在一个文件中，那么每个文件会默认成为一个mod，不用在使用mod关键字修饰</p>
+<h2 id="trait">Trait</h2>
+<p>属于interface</p>
+<pre><code class="lang-rust">
+
+</code></pre>
+<h2 id="层级">层级</h2>
+<ul>
+<li>use super:: 表示上一级父层级的模块</li>
+<li>use crate:: 表示root层级的模块</li>
+</ul>
+<h2 id="string与str">String与str</h2>
+<ul>
+<li>String是一个Vector<utf8></utf8></li>
+<li>str是一个slice</li>
+</ul>
+<h2 id="打印">打印</h2>
+<pre><code class="lang-rust"><span class="hljs-comment">// 常规打印，format</span>
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Received a request {}&quot;</span>, <span class="hljs-built_in">String</span>::from_utf8_lossy(&amp;buffer))
+
+<span class="hljs-comment">// debug输出</span>
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Received a request {:?}&quot;</span>, <span class="hljs-built_in">String</span>::from_utf8_lossy(&amp;buffer))
+</code></pre>
+<h2 id="lifetime">lifetime</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 第二章">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-TODO.html" class="navigation navigation-next " aria-label="Next page: 2.TODO">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.基础概念","level":"1.3.1","depth":2,"next":{"title":"2.TODO","level":"1.3.2","depth":2,"path":"02_httpserver/02-TODO.md","ref":"02_httpserver/02-TODO.md","articles":[]},"previous":{"title":"第二章","level":"1.3","depth":1,"path":"02_httpserver/README.md","ref":"02_httpserver/README.md","articles":[{"title":"1.基础概念","level":"1.3.1","depth":2,"path":"02_httpserver/01-基础概念.md","ref":"02_httpserver/01-基础概念.md","articles":[]},{"title":"2.TODO","level":"1.3.2","depth":2,"path":"02_httpserver/02-TODO.md","ref":"02_httpserver/02-TODO.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"02_httpserver/01-基础概念.md","mtime":"2022-08-10T03:04:48.359Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2022-08-10T03:22:10.434Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

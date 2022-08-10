@@ -1,0 +1,451 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>2.calculator · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.5">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../02_httpserver/" />
+    
+    
+    <link rel="prev" href="01-helloworld.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第一章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-helloworld.html">
+            
+                <a href="01-helloworld.html">
+            
+                    
+                    1.helloworld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="02-calculator.html">
+            
+                <a href="02-calculator.html">
+            
+                    
+                    2.calculator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../02_httpserver/">
+            
+                <a href="../02_httpserver/">
+            
+                    
+                    第二章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../02_httpserver/01-基础概念.html">
+            
+                <a href="../02_httpserver/01-基础概念.html">
+            
+                    
+                    1.基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../02_httpserver/02-TODO.html">
+            
+                <a href="../02_httpserver/02-TODO.html">
+            
+                    
+                    2.TODO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.calculator</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="2calculator">2.calculator</h1>
+<h1 id="计算器calculator">计算器Calculator</h1>
+<h2 id="数据类型：">数据类型：</h2>
+<ul>
+<li>u8:1字节</li>
+<li>char：4字节</li>
+<li>usize：8字节</li>
+</ul>
+<p><img src="assets/image-20220801105701821.png" alt="image-20220801105701821"></p>
+<h2 id="创建工程">创建工程</h2>
+<pre><code class="lang-sh">cargo new mars_calculator
+</code></pre>
+<p>编写main.rs如下：</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-comment">// 明确类型(不建议这样做)</span>
+    <span class="hljs-comment">// let mars_weight: f32 = mars_calculator(100.9);</span>
+
+    <span class="hljs-comment">// 自动推导返回类型(推荐方式)</span>
+    <span class="hljs-keyword">let</span> mars_weight = mars_calculator(<span class="hljs-number">100.9</span>);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Weight on Mars: {}kg&quot;</span>, mars_weight);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mars_calculator</span></span>(_weight: <span class="hljs-built_in">f32</span>) -&gt; <span class="hljs-built_in">f32</span> {
+    (_weight / <span class="hljs-number">9.81</span>) * <span class="hljs-number">3.711</span>
+}
+</code></pre>
+<p>运行：</p>
+<p><img src="assets/image-20220801112008710.png" alt="image-20220801112008710"></p>
+<h2 id="安装expand">安装expand</h2>
+<p>println是一个宏（Macro）定义，可以将它的代码展开</p>
+<pre><code class="lang-sh">cargo install cargo-expand
+</code></pre>
+<p>运行：</p>
+<pre><code class="lang-s">cargo expand
+</code></pre>
+<p><img src="assets/image-20220801111953887.png" alt="image-20220801111953887"></p>
+<h2 id="默认immutable">默认immutable</h2>
+<ol>
+<li>所有的变量在rust中，默认都是immutable的，即定义之后不能修改</li>
+<li>如果想修改需要使用关键字mut（如果不加mut会报错）</li>
+</ol>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-comment">// let mars_weight = mars_calculator(100.9); // error</span>
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> mars_weight = mars_calculator(<span class="hljs-number">100.9</span>);
+
+    mars_weight = mars_weight * <span class="hljs-number">1000.0</span>;
+
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Weight on Mars: {}kg&quot;</span>, mars_weight);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mars_calculator</span></span>(_weight: <span class="hljs-built_in">f32</span>) -&gt; <span class="hljs-built_in">f32</span> {
+    (_weight / <span class="hljs-number">9.81</span>) * <span class="hljs-number">3.711</span>
+}
+</code></pre>
+<h2 id="命令行输入">命令行输入</h2>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::io;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Enter a weight:(kg)&quot;</span>);
+
+      <span class="hljs-comment">// 1. 创建一个string类型</span>
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> input = <span class="hljs-built_in">String</span>::new();
+
+      <span class="hljs-comment">// 2. 读取数据，写入到input中，这里的&amp;表示传递引用，即直接修改input的值，而不是副本拷贝</span>
+      <span class="hljs-comment">// 3. unwrap是对返回值Result&lt;T, Error&gt;的处理，逻辑为：</span>
+      <span class="hljs-comment">// a. 如果执行成功，则正常返回</span>
+      <span class="hljs-comment">// b. 如果执行失败，则程序终止</span>
+    io::stdin().read_line(&amp;<span class="hljs-keyword">mut</span> input).unwrap();
+
+      <span class="hljs-comment">// 4. 此处对输入（字符串）进行去除空格处理，并且自动转换成目标数据类型（f32)</span>
+    <span class="hljs-keyword">let</span> weight: <span class="hljs-built_in">f32</span> = input.trim().parse().unwrap();
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;weight: {}&quot;</span>, weight);
+
+      <span class="hljs-comment">// 5. 此处为debug打印输出，目的是查看weight的数据类型，会发现是字符串，如：&quot;123&quot;</span>
+    dbg!(weight);
+
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;input: {}&quot;</span>, input);
+    <span class="hljs-comment">// let mars_weight = mars_calculator(100.9); // error</span>
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> mars_weight = mars_calculator(weight);
+    mars_weight = mars_weight * <span class="hljs-number">1000.0</span>;
+
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Weight on Mars: {}kg&quot;</span>, mars_weight);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">mars_calculator</span></span>(_weight: <span class="hljs-built_in">f32</span>) -&gt; <span class="hljs-built_in">f32</span> {
+    (_weight / <span class="hljs-number">9.81</span>) * <span class="hljs-number">3.711</span>
+}
+</code></pre>
+<h2 id="测试">测试</h2>
+<pre><code class="lang-sh">cargo run
+</code></pre>
+<h2 id="其他">其他</h2>
+<p>支持gdb调试，与C++几乎完全一致</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-helloworld.html" class="navigation navigation-prev " aria-label="Previous page: 1.helloworld">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../02_httpserver/" class="navigation navigation-next " aria-label="Next page: 第二章">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.calculator","level":"1.2.2","depth":2,"next":{"title":"第二章","level":"1.3","depth":1,"path":"02_httpserver/README.md","ref":"02_httpserver/README.md","articles":[{"title":"1.基础概念","level":"1.3.1","depth":2,"path":"02_httpserver/01-基础概念.md","ref":"02_httpserver/01-基础概念.md","articles":[]},{"title":"2.TODO","level":"1.3.2","depth":2,"path":"02_httpserver/02-TODO.md","ref":"02_httpserver/02-TODO.md","articles":[]}]},"previous":{"title":"1.helloworld","level":"1.2.1","depth":2,"path":"01_quickstart/01-helloworld.md","ref":"01_quickstart/01-helloworld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"01_quickstart/02-calculator.md","mtime":"2022-08-10T03:04:48.315Z","type":"markdown"},"gitbook":{"version":"3.7.5","time":"2022-08-10T03:22:10.434Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
