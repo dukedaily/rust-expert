@@ -1,0 +1,25 @@
+{
+    "name": "rust-expert",
+    "version": "1.0.0",
+    "description": "这是一个Rust入门教程，原视频是`udemy`上的付费课程，被搬到了B站上，该项目内容为个人的学习记录，包括code，笔记等",
+    "main": "index.js",
+    "scripts": {
+        "build": "honkit build",
+        "serve": "honkit serve",
+        "deploy": "gh-pages -d _book"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dukedaily/rust-expert.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dukedaily/rust-expert/issues"
+    },
+    "homepage": "https://github.com/dukedaily/rust-expert#readme",
+    "dependencies": {
+        "gh-pages": "^4.0.0",
+        "honkit": "^3.7.5"
+    }
+}
